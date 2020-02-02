@@ -9,26 +9,14 @@
 
     <title>Weather Dashboard</title>
 <style>
-    body{
+body{
       width: 1500px;
       padding-left: 350px;
+      padding-right: 250px;
     }
     
-header {
-    display: block;
-    padding-top: 15px;
-    text-align: center;
-    border: 5px;
-    background-color: black;
-    color: white;
-    height: 50px;
-}
-
-.theNavbar{
-
-width: 375px;
-
-
+header{
+  text-align: center;
 }
 
 
@@ -41,11 +29,31 @@ width: 375px;
     
 }
 
-.forecast {
-  float: right;
-
+#forecast1{
+  float: left;
 }
 
+#forecast2{
+float: left;
+}
+
+#forecast3{
+  float: left;
+}
+#forecast4{
+  float: left;
+}
+#forecast5{
+  float: left;
+}
+
+#citysearch {
+  width: 350px;
+}
+
+#dash{
+  background-color: white;
+}
 
 
     
@@ -55,7 +63,61 @@ width: 375px;
 
 </head>
 <body>
-    <header>Weather Dashboard</header>
+
+   
+    <header>Weather Dashboard</header> 
+    <h4 class="display-4">Search For a City</h4>
+    <nav class="navbar navbar-light bg-light" id="citysearch">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+    
+    <hr class="my-4">
+    <!-- forecast -->
+    <div class="card text-white bg-info mb-3" style="max-width: 12rem;" id="forecast1">
+      <div class="card-header">Date</div>
+      <div class="card-body">
+        <h6 class="card-title">Temp: </h6>
+        <h6 class="card-title">Humidity: </h6>
+      </div>
+    </div>
+    <!-- forecast -->
+    <div class="card text-white bg-info mb-3" style="max-width: 12rem;" id="forecast2">
+      <div class="card-header">Date</div>
+      <div class="card-body">
+        <h6 class="card-title">Temp: </h6>
+        <h6 class="card-title">Humidity: </h6>
+      </div>
+    </div>
+    <!-- forecast -->
+    <div class="card text-white bg-info mb-3" style="max-width: 12rem;" id="forecast3">
+      <div class="card-header">Date</div>
+      <div class="card-body">
+        <h6 class="card-title">Temp: </h6>
+        <h6 class="card-title">Humidity: </h6>
+      </div>
+    </div>
+    <!-- forecast -->
+    <div class="card text-white bg-info mb-3" style="max-width: 12rem;" id="forecast4">
+      <div class="card-header">Date</div>
+      <div class="card-body">
+        <h6 class="card-title">Temp: </h6>
+        <h6 class="card-title">Humidity: </h6>
+      </div>
+    </div>
+    <!-- forcast -->
+    <div class="card text-white bg-info mb-3" style="max-width: 12rem;" id="forecast5">
+      <div class="card-header">Date</div>
+      <div class="card-body">
+        <h6 class="card-title">Temp: </h5>
+        <h6 class="card-title">Humidity: </h6>
+      </div>
+    </div>
+  
+
+    <!-- <header>Weather Dashboard</header>
   <div class="theNavbar" id="colum left">
     <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
@@ -122,6 +184,8 @@ width: 375px;
           
         </div>
     </div>
-</div>    
+</div>     -->
+
 </body>
+
 </html>

@@ -1,0 +1,10 @@
+header {
+    display: block;
+    position: center;
+    text-align: center;
+    border: 5px;
+}
+
+.jumbotron {
+    background-color: black;
+}

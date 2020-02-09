@@ -1,0 +1,33 @@
+
+
+body{
+  background-color:lightcyan;
+}
+
+header{
+  
+  color:black;
+}
+
+
+.jumbotron {
+ 
+ position: absolute;
+ right: 200px;
+ width: 35%;
+ height: 300px;
+ bottom: 323px;
+}
+
+#forecast{
+
+position: absolute;
+right: 100px;
+width: 65%;
+height: 300px;
+top: 380px;
+
+}
+
+
+

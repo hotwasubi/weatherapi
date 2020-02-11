@@ -1,11 +1,11 @@
 
 function search() {
-    var cwQueryUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=f5fc1f0c026376dc2fa96613dd6217cf&q=' + srchbx.value;
-    var fdQueryUrl = 'https://api.openweathermap.org/data/2.5/forecast?appid=f5fc1f0c026376dc2fa96613dd6217cf&q=' + srchbx.value;
-    var fdIndex =  [6,14,22,30,38];
+    var weatherQueryUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=f5fc1f0c026376dc2fa96613dd6217cf&q=' + srchbx.value;
+    var forecastQueryUrl = 'https://api.openweathermap.org/data/2.5/forecast?appid=f5fc1f0c026376dc2fa96613dd6217cf&q=' + srchbx.value;
+    var fdIndex =  [7,14,21,28,35];
 
     $.ajax({
-        url: cwQueryUrl,
+        url: weatherQueryUrl,
         method: 'get'
     }).then(function(res) {
         $('#city').html(res.name + ', ' + res.sys.country);
@@ -23,18 +23,18 @@ function search() {
         }).then(function(resp) {
             $('#uv').html(resp.value)
             if (resp.value <= 3) {
-                $('#uv').attr('class', 'grn info')
+                $('#uv').attr('class', 'green info')
             } else if (resp.value <= 6 && resp.value > 3) {
-                $('#uv').attr('class', 'ylw info')
+                $('#uv').attr('class', 'yellow info')
             } else if (resp.value <= 8 && resp.value > 6) {
-                $('#uv').attr('class', 'org info')
+                $('#uv').attr('class', 'orange info')
             } else {
                 $('#uv').attr('class', 'red info')
             }
         })
     });
     $.ajax({
-        url: fdQueryUrl,
+        url: forecastQueryUrl,
         method: 'get'
     }).then(function(res) {
         for (i = 0; i < 5; i++) {

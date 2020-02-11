@@ -1,33 +1,20 @@
-
-/* 
-body{
-  background-color:lightcyan;
+body {
+  background-color:white
 }
 
-header{
-  
-  color:black;
+.day{
+  background-color:#bdbdbd;
+  padding:1px;
+  border-style: groove;
 }
 
+.green {
+  color: green;
+}
 
 .jumbotron {
- 
- position: absolute;
- right: 200px;
- width: 35%;
- height: 300px;
- bottom: 323px;
+  background-color: #bdbdbd;
 }
-
-#forecast{
-
-position: absolute;
-right: 100px;
-width: 65%;
-height: 300px;
-top: 380px;
-
-} */
-
-
-
+.navbar {
+  background-color: white;
+}

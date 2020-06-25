@@ -1,0 +1,222 @@
+
+var cityName = "";
+var unixtimestamp = "";
+var confirm = true;
+
+$(document).ready(function(){
+
+$(".search").on("change", function(){
+    cityName = $(this).val();
+    history();
+    $(".welcome").hide();
+    $(".current-weather").show();
+    $(".fiveday-section").show();
+    $("#clearBtn").show();
+    weatherInfo(cityName, confirm);
+    
+});
+
+
+var counter = 0
+function history(){
+    counter++;
+    if(counter <= 5)
+    var searchHistory = $("<a id='history'>").html(cityName);
+    $(".search-history").append(searchHistory);
+    $(".search-history").show();
+   
+    searchHistory.addClass("collection-item btn history-click");
+   
+} 
+
+function weatherInfo(){
+    $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
+        method: "GET"
+    }).then(function(res){
+            $(".city").html(res.name)
+            $(".temperature").html(Math.round(res.main.temp));
+            $(".humidity").html(res.main.humidity);
+            $(".wind").html(Math.round(res.wind.speed));
+            var iconcode = res.weather[0].icon;
+            longtitude = res.coord.lon;
+            latitude = res.coord.lat;
+            
+            var iconurl = "http://openweathermap.org/img/w/" + iconcode+ ".png";
+            $(".main-weather-icon").attr("src", iconurl);
+
+            $.ajax({
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=d0a375328afdfa592d8c75ccd455a704&lat=" + latitude + "&lon=" + longtitude,
+                method: "GET"
+            }).then(function(res2){
+                $(".uv-index").html(res2.value)
+            })
+            
+            dateConversion();
+            function dateConversion(){
+                var dateStamp = res.dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+                console.log(date)
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".date").html(convertDate); 
+            }
+            $.ajax({
+                url: "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=d0a375328afdfa592d8c75ccd455a704",
+                method: "GET"
+            }).then(function (res3){
+
+                //weather icons for 5 day forecast
+                var iconCode1 = res3.list[2].weather[0].icon
+                var iconCode2 = res3.list[9].weather[0].icon
+                var iconCode3 = res3.list[16].weather[0].icon
+                var iconCode4 = res3.list[23].weather[0].icon
+                var iconCode5 = res3.list[33].weather[0].icon
+                var iconUrl1 = "https://openweathermap.org/img/w/" + iconCode1+ ".png";
+                var iconUrl2= "https://openweathermap.org/img/w/" + iconCode2+ ".png";
+                var iconUrl3 = "https://openweathermap.org/img/w/" + iconCode3+ ".png";
+                var iconUrl4 = "https://openweathermap.org/img/w/" + iconCode4+ ".png";
+                var iconUrl5 = "https://openweathermap.org/img/w/" + iconCode5+ ".png";
+            $("#icon1").attr("src", iconUrl1);
+            $("#icon2").attr("src", iconUrl2);
+            $("#icon3").attr("src", iconUrl3);
+            $("#icon4").attr("src", iconUrl4);
+            $("#icon5").attr("src", iconUrl5);
+
+                //temperature for 5 day forecast
+            $(".forecastTemp1").html(Math.round(res3.list[2].main.temp));
+            $(".forecastTemp2").html(Math.round(res3.list[9].main.temp));
+            $(".forecastTemp3").html(Math.round(res3.list[16].main.temp));
+            $(".forecastTemp4").html(Math.round(res3.list[23].main.temp));
+            $(".forecastTemp5").html(Math.round(res3.list[33].main.temp));
+
+                //humidity for 5 day forecast
+            $(".foreHumidity1").html(res3.list[2].main.humidity);
+            $(".foreHumidity2").html(res3.list[9].main.humidity);
+            $(".foreHumidity3").html(res3.list[16].main.humidity);
+            $(".foreHumidity4").html(res3.list[23].main.humidity);
+            $(".foreHumidity5").html(res3.list[33].main.humidity);
+
+                
+
+                    
+            dateConversion1();
+            function dateConversion1(){
+                var dateStamp = res3.list[2].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date1").html(convertDate); 
+                console.log(dateStamp)
+            }
+            console.log(dateConversion1());
+                    
+                    
+        
+
+            dateConversion2();
+            function dateConversion2(){
+                var dateStamp = res3.list[9].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date2").html(convertDate); 
+                console.log(dateStamp)
+            }
+            console.log(dateConversion2());
+                    
+                    
+        
+
+            dateConversion3();
+            function dateConversion3(){
+                var dateStamp = res3.list[16].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date3").html(convertDate); 
+                convertDate++
+                console.log(dateStamp)
+            }
+            console.log(dateConversion3());
+                    
+                    
+    
+
+            dateConversion4();
+            function dateConversion4(){
+                var dateStamp = res3.list[23].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date4").html(convertDate); 
+                convertDate++
+                console.log(dateStamp)
+            }
+            console.log(dateConversion4());
+                    
+                    
+
+
+            dateConversion5();
+            function dateConversion5(){
+                var dateStamp = res3.list[33].dt;
+                var months = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                var date = new Date(dateStamp*1000);
+                var year = date.getFullYear();
+                var month = months[date.getMonth()];
+                var day = date.getDate();
+            
+                var convertDate = month+'/'+day+'/'+year;
+                $(".day-date5").html(convertDate);
+                convertDate++
+                console.log(dateStamp) 
+            }
+            console.log(dateConversion5());
+                    
+                    
+            })
+
+        
+            
+    });
+
+    }
+
+    
+  
+
+    $("#clearBtn").on("click", function(){
+        $(".search-history").html("");
+        $(".search").val("");
+        $(".search-history").hide();
+        $("#clearBtn").hide();
+        $(".current-weather").hide();
+        $(".fiveday-section").hide();
+        $(".welcome").show();
+    })
+
+    
+
+
+
+});
+

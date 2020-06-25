@@ -1,2 +1,0 @@
-# weatherapi
-first api 

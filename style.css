@@ -1,0 +1,99 @@
+body {
+    background-color: #b3e5fc;
+    
+}
+
+
+.title,
+.title-wrapper {
+    background-color: #b3e5fc;
+    border-bottom: none;
+
+}
+#logo{
+    color: black;
+    
+}
+#openMesg{
+    font-family: 'Krona One', sans-serif;
+    font-size: medium;
+}
+
+.search-section {
+ max-width: 25%;
+ padding-right: 20px;
+ display: inline-block;
+ 
+}
+#searchSec{
+    border-right: solid 2px;
+}
+
+.welcome {
+    max-width: 75%;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.current-weather {
+ max-width: 75%;
+ padding-left: 20px;
+ padding-bottom: 20px;
+ margin-top: 20px;
+ margin-left: 20px;
+}
+
+.day-style {
+    min-height: 20%;
+    width:  15%;
+    background-color: #b3e5fc;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    border: none;
+    border-radius: 10%;
+}
+
+.fiveday-section {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.five-day {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#historyBox {
+    color: grey;
+    text-align: center;
+    border: none;
+    display: none;
+}
+#history{
+    background-color: #b3e5fc;
+    color: black;
+    border: none;
+    padding: 0;
+}
+
+hr {
+    line-height: 2px;
+    color: black;
+    opacity: 500%;
+    max-width: 100%;
+}
+
+.explanation {
+    font-style: italic;
+}
+
+#clearBtn{
+    text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+    padding-top: 3.5px;
+    background-color: transparent;
+    
+}
